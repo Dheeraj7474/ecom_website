@@ -1,0 +1,79 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Table</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .table {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col">
+                
+                
+                
+                {% for product in products %}
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Entity</th>
+                            <th scope="col">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Name Of The Company</td>
+                            <td>{{product.name}}</td>
+                        </tr>
+                        <tr>
+                            <td>Revenue</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Cost of Goods Sold (COGS)</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Operating Expenses</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Depreciation</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Interest Expense</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Taxes</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Net Profit</td>
+                            <td>{{product.price}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
