@@ -68,6 +68,12 @@
                         </tr>
                     </tbody>
                 </table>
+                <form action="/update-form" method="POST">
+                    {% csrf_token %}
+                    <input hidden type="number" name='product' value='{{product.id}}'>
+                    <input type="submit" name='random' class="btn btn-block btn-success border-right" value="Update Company Costs" />
+
+                </form>
                 {% endfor %}
             </div>
         </div>

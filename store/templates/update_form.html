@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Company Financial Update Form</title>
+    <style>
+        /* CSS for form styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+        
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            border-radius: 5px;
+        }
+        
+        h1 {
+            text-align: center;
+        }
+        
+        form {
+            display: grid;
+            gap: 10px;
+        }
+        
+        label {
+            font-weight: bold;
+        }
+        
+        input[type="number"] {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        input[type="submit"] {
+            padding: 10px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Company Financial Update Form</h1>
+        {% for product in products %}
+        <form action="/update-costs" method="post">
+            {% csrf_token %}
+            <label for="revenue">Revenue:</label>
+            <input type="number" id="revenue" name="revenue" step="any" value="{{product.revenue}}" required>
+            
+            <label for="costOfGoodsSold">Cost of Goods Sold:</label>
+            <input type="number" id="costOfGoodsSold" name="costOfGoodsSold" step="any" value="{{product.cogs}}" required>
+            
+            <label for="operatingExpenses">Operating Expenses:</label>
+            <input type="number" id="operatingExpenses" name="operatingExpenses" step="any" value="{{product.op_exp}}" required>
+            
+            <label for="depreciation">Depreciation:</label>
+            <input type="number" id="depreciation" name="depreciation" step="any" value="{{product.dep}}" required>
+            
+            <label for="interestExpense">Interest Expense:</label>
+            <input type="number" id="interestExpense" name="interestExpense" value="{{product.interest_exp}}" step="any" required>
+            
+            <label for="taxes">Taxes:</label>
+            <input type="number" id="taxes" name="taxes" step="any" value="{{product.taxes}}" required>
+            <input hidden type="number" name='product' value='{{product.id}}'>
+            
+            <input type="submit" value="Submit">
+        </form>
+        {% endfor %}
+    </div>
+</body>
+</html>
