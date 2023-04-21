@@ -74,6 +74,15 @@
                     <input type="submit" name='random' class="btn btn-block btn-success border-right" value="Update Company Costs" />
 
                 </form>
+                <form action="/store" method="POST">
+                    {% csrf_token %}
+                    <input hidden type="number" name='product' value='{{product.id}}'>
+                    <br>
+                    <input type="submit" name='random' class="btn btn-block btn-success border-right" value="Back to Store" />
+                </form>
+
+
+
                 {% endfor %}
             </div>
         </div>
