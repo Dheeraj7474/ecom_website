@@ -20,7 +20,7 @@ class Login(View):
             flag = check_password (password, customer.password)
             if flag:
                 request.session['customer'] = customer.id
-                return redirect('twilio')
+                return redirect('twilio',email=email)
                 if Login.return_url:
                     # return HttpResponseRedirect (Login.return_url)
                     return redirect ('twilio')

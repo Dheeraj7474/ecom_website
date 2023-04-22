@@ -28,7 +28,7 @@ urlpatterns = [
     path('details', auth_middleware(DetailsView.as_view()), name='details'),
     path('update-form',UpdateFormView.as_view(),name='updateform'),
     path('update-costs',UpdateCostsView.as_view(),name='updatecosts'),
-    path('twilio',MessageHandler.register, name='twilio'),
+    path('twilio/<str:email>',MessageHandler.register, name='twilio'),
     path('enter-otp',MessageHandler.enter_otp,name='enter-otp'),
     path('verify-otp',MessageHandler.verify_otp,name='verify-otp')
 
