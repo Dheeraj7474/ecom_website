@@ -37,6 +37,7 @@ class MessageHandler:
         if(user_otp==twilio_otp):
             return redirect('homepage')
         else:
+            request.session.clear()
             return render (request, 'login.html', {'error': 'INVALID OTP, PLEASE LOGIN AGAIN!!'})
     def enter_otp(request):
         return render('enter_otp.html')
