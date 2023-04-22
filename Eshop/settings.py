@@ -37,7 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'store'
+    'store',
+    'django_otp',
+    'django_otp.plugins.otp_static',
+    'django_otp.plugins.otp_totp',
+    'two_factor',
 ]
 
 MIDDLEWARE = [
@@ -48,7 +52,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django_otp.middleware.OTPMiddleware',
 ]
 
 ROOT_URLCONF = 'Eshop.urls'
@@ -122,3 +127,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = "/image/download/"
 MEDIA_ROOT = BASE_DIR
+ACCOUNT_SID='AC3abccb82622fdff78e873a562dfaf2a9'
+AUTH_TOKEN='33ff1dbafe7f2ff4986c07bd3a35fa40'
+COUNTRY_CODE='+91'
+TWILIO_WHATSAPP_NUMBER='whatsapp:+14155238886'
+TWILIO_PHONE_NUMBER='+14055925185'
+
+
