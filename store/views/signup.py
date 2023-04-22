@@ -15,12 +15,13 @@ class Signup (View):
         phone = postData.get ('phone')
         email = postData.get ('email')
         password = postData.get ('password')
+        country_code = postData.get('country_code')
         # validation
         value = {
             'first_name': first_name,
             'last_name': last_name,
             'phone': phone,
-            'email': email
+            'email': email,
         }
         error_message = None
 
@@ -28,7 +29,8 @@ class Signup (View):
                              last_name=last_name,
                              phone=phone,
                              email=email,
-                             password=password)
+                             password=password,
+                             country_code = country_code)
         error_message = self.validateCustomer (customer)
 
         if not error_message:
