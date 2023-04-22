@@ -48,6 +48,7 @@
         <label for="otp">Enter OTP:</label>
         <input type="number" id="user_otp" name="user_otp" required>
         <input type="hidden" id="twilio_otp" name="twilio_otp" value="{{otp}}">
+        <input type="hidden" id="customer" name="customer" value="{{customer.id}}">
         <br>
         <br>
         <input type="submit" value="Verify OTP">

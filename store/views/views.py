@@ -28,13 +28,16 @@ class MessageHandler:
         otp=random.randint(1000,9999)
         customer = Customer.get_customer_by_email(email)
         messagehandler=MessageHandler(customer.phone,otp).send_otp_via_message(customer.country_code)
-        return render(request , 'enter_otp.html',{'otp' : otp})
+        return render(request , 'enter_otp.html',{'otp' : otp,'customer':customer})
 
         
     def verify_otp(request):
         user_otp = request.POST.get("user_otp")
         twilio_otp = request.POST.get("twilio_otp")
+        customer = request.POST.get("customer")
+        print(customer)
         if(user_otp==twilio_otp):
+            request.session['customer'] = customer
             return redirect('homepage')
         else:
             request.session.clear()
