@@ -10,6 +10,7 @@ class Login(View):
     def get(self, request):
         Login.return_url = request.GET.get ('return_url')
         return render (request, 'login.html')
+    
 
     def post(self, request):
         email = request.POST.get ('email')

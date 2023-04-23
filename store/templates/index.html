@@ -14,7 +14,7 @@
 		<div class="col-lg-3 mx-auto">
 			<div class="list-group">
 
-				<a href="/" class="list-group-item list-group-item-action btn btn-outline-success">All Products</a>
+				<a href="/" class="list-group-item list-group-item-action btn btn-outline-success">All Companies</a>
 
 				{% for category in categories %}
 				<a href="/?category={{category.id}}"
@@ -45,7 +45,7 @@
 								<input hidden type="text" name='remove' value='True'>
 								<input type="submit" value=" - " class="btn btn-block btn-success border-right">
 							</form>
-							<div class="text-center col btn btn-success">{{product|cart_quantity:request.session.cart}} in Cart</div>
+							<div class="text-center col btn btn-success">{{product|cart_quantity:request.session.cart}} in Wishlist</div>
 							<form action="/#{{product.id}}" class="col-2 " method="post">
 								{% csrf_token %}
 								<input hidden type="text" name='product' value='{{product.id}}'>
@@ -57,7 +57,7 @@
 							{% csrf_token %}
 							<input hidden type="text" name='product' value='{{product.id}}'>
 							<input type="submit" class="float-right btn btn-success form-control"
-								value="Add To Cart">
+								value="Save">
 						</form>
 						{% endif %}
 						<br>
