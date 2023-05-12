@@ -12,11 +12,10 @@
             <thead>
                 <tr>
                     <th>Sno.</th>
-                    <th>Image</th>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>Total</th>
+                    <th>Logo</th>
+                    <th>Company</th>
+                    <th>Profit</th>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -27,8 +26,7 @@
                     <td><img style="height: 80px;" class="rounded-circle" src="{{product.image.url}}" alt=""></td>
                     <td>{{product.name}}</td>
                     <td>{{product.price|currency}}</td>
-                    <td>{{product|cart_quantity:request.session.cart}}</td>
-                    <td>{{product|price_total:request.session.cart|currency}}</td>
+                    
                 </tr>
 
                 {% endfor %}
@@ -37,15 +35,13 @@
 
             <tfoot>
                 <tr>
-                    <th colspan="4"></th>
-                    <th class="" colspan="">Total</th>
-                    <th>{{products|total_cart_price:request.session.cart|currency}}</th>
+                    
                 </tr>
             </tfoot>
         </table>
         <hr>
         <div class="m-3 p-3">
-            <a href="#" data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-success border rounded  col-lg-3 float-right">Check out</a>
+            <a href="#" data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-success border rounded  col-lg-3 float-right">Remove</a>
         </div>
    </div>
 </div>

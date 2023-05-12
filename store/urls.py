@@ -14,6 +14,7 @@ from .views.details import DetailsView
 from .views.update_form import UpdateFormView
 from .views.update_costs import UpdateCostsView
 from .views.views import MessageHandler
+from .views.about_us import AboutUs 
 
 
 urlpatterns = [
@@ -30,6 +31,7 @@ urlpatterns = [
     path('update-costs',UpdateCostsView.as_view(),name='updatecosts'),
     path('twilio/<str:email>',MessageHandler.register, name='twilio'),
     path('enter-otp',MessageHandler.enter_otp,name='enter-otp'),
-    path('verify-otp',MessageHandler.verify_otp,name='verify-otp')
+    path('verify-otp',MessageHandler.verify_otp,name='verify-otp'),
+    path('about-us',AboutUs.about_us,name='about-us')
 
 ]
